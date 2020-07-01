@@ -1,0 +1,46 @@
+{
+    "avatar": "./avatar.png",
+    "name": "江宇弘",
+    "nick": "Rex / Proladon",
+    "mail": "Proladon@gmail.com",
+    "website": "12313",
+    "slogan":{
+        "slogan1": "Live for",
+        "slogan2": "Create and Share"
+    },
+    "profession":["工業設計師", "Coder", "Youtuber", "3D/2D Artist"],
+    "edu":{
+        "edu1":{
+            "school": "大同大學 ( TTU )",
+            "cert": "工業設計所 (碩士)"
+        },
+        "edu2":{
+            "school": "亞東技術學院 ( OIT )",
+            "cert": "工商業設計系"
+        }
+    },
+    "awards":{
+        "award2019": {
+            "years": "2019",
+            "award": ["Discord Hack Week 2019 - Bot Develope", "[Moderation] Libereus (第二名)"]
+        },
+        "award2018": {
+            "years": "2018",
+            "award":[
+                "金點新秀 YoungPin - 弓形鋸輔助套件",
+                "秀年度最佳設計獎",
+                "贊助特別獎",
+                "全類別前50",
+                "福興 3F ZIPPER - Hook Zipper (第三名)",
+                "華宇織造 - 孕婦抱枕 (第三名)"
+            ]
+        },
+        "award2017": {
+            "years": "2017",
+            "award":[
+                "KDesign OTOS Prize - MFSG-1 Goggles",
+                "KDesign OTOS Prize - MFSG-2 Goggles"
+            ]
+        }
+    }
+}
