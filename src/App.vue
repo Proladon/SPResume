@@ -41,8 +41,12 @@
             </div>
 
             <!-- Overlay -->
-            <Overlay :overlay="overlay" @overlaySync="syncOverlayVal" />
-            
+            <Overlay :overlay="overlay" />
+            <svg id="overlay-cls-btn">
+                <circle id="cls-btn" :class="{cls_btn_show:overlay}" @click="closeOverlay"/>
+                <text x="35%" y="65%" id="cls-btn-text" :class="{cls_btn_text_show:overlay}">--</text>
+            </svg>
+
             <!-- If Skill -->
             <SkillOverlay 
                 v-if="skillShow == 'Industrial Design' | skillShow == '工業設計'" 
@@ -139,10 +143,11 @@
                 this.overlay = true
                 this.skillShow = text
             },
-            syncOverlayVal(val){
-                this.overlay = val
+            closeOverlay(){
+                this.overlay = false
                 this.skillShow = ''
             }
+
         },
         created() {
             this.lang = this.EN
@@ -203,5 +208,39 @@
     .highlight{
         // color: rgb(39, 146, 165);
         color: white;
+    }
+
+    #overlay-cls-btn{
+        width: 25px;
+        height: 25px;
+        position: absolute;
+        top: 15px;
+        right: 15px;
+    }
+
+    #cls-btn{
+        cx: 50%;
+        cy: 50%;
+        r: 0;
+        fill: rgb(39, 55, 70);
+        transition: ease-in-out 1s;
+    }
+
+    .cls_btn_show{
+        r: 10 !important;
+    }
+
+    #cls-btn-text{
+        opacity: 0;
+        transform: translateX(-20px);
+        pointer-events: none;
+        transition: ease-in-out 1s;
+        transition-delay: .5s;
+    }
+    .cls_btn_text_show{
+        transform: translateX(0) !important;
+        opacity: 100 !important;
+        stroke: white;
+        fill: white;
     }
 </style>
