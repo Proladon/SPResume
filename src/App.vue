@@ -1,9 +1,11 @@
 <template>
     <div id="app">
-        <div id="lang" @click="changeLang">EN / CH</div>
+        <div id="lang" @click="changeLang">
+            <span :class="{highlight:country==='EN'}">EN</span> / <span :class="{highlight:country==='CH'}">CH</span>
+        </div>
         <div class="page-wrapper">
 
-            <hooper id="main-hooper" :wheelControl="false">
+            <hooper id="main-hooper" :wheelControl="false" @slide="chpage">
                 <slide>
                     <Header 
                         :slogan1="lang.slogan.slogan1" 
@@ -24,14 +26,18 @@
                     <Awards :awards="lang.awards" />
                 </slide>
 
+                <!-- Page 2 -->
                 <slide>
-                    <img src="./assets/qr-code.svg" width="50%">
+                    <Intro :country="country" />
+                    <Links />
                 </slide>
+
             </hooper>
 
+            <!-- Footer -->
             <div class="footer section">
                 <p><span>{{ page }}</span> / 2</p>
-                ← Slide →
+                <p style="letter-spacing: 5px;">← Slide →</p>
             </div>
 
             <!-- Overlay -->
@@ -83,11 +89,11 @@
     import Edu from './components/Edu.vue'
     import Skill from './components/Skill.vue'
     import Awards from './components/Awards.vue'
+    import Intro from './components/Intro.vue'
+    import Links from './components/Links.vue'
+
     import Overlay from './components/Overlay.vue'
-    
-    // import Design from './components/skill/Design.vue'
-    // import Programming from './components/skill/Programming.vue'
-    import SkillOverlay from './components/skill/SkillOverlay.vue'
+    import SkillOverlay from './components/SkillOverlay.vue'
 
     export default {
         name: 'App',
@@ -100,9 +106,9 @@
             Edu,
             Skill,
             Awards,
+            Intro,
+            Links,
             Overlay,
-            // Design,
-            // Programming,
             SkillOverlay,
         },
         data() {
@@ -126,8 +132,10 @@
                     this.lang = this.EN
                 }
             },
+            chpage(payload){
+                this.page = payload.currentSlide +1
+            },
             overlaySkill(text) {
-                console.log(text)
                 this.overlay = true
                 this.skillShow = text
             },
@@ -168,6 +176,7 @@
     }
 
     #lang {
+        color: gray;
         text-align: center;
         margin: 15px;
     }
@@ -191,4 +200,8 @@
         outline: none;
     }
 
+    .highlight{
+        // color: rgb(39, 146, 165);
+        color: white;
+    }
 </style>

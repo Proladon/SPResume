@@ -34,6 +34,8 @@
 <script>
 import skillID from '@/json/skillID.json'
 import skillCD from '@/json/skillCoding.json'
+import skillArt from '@/json/skillArt.json'
+import skillMedia from '@/json/skillMedia.json'
     export default {
         name: "SkillOverlay",
         props:["category", "lang"],
@@ -51,13 +53,14 @@ import skillCD from '@/json/skillCoding.json'
             {
                 this.data = skillCD
             }
-            // else if (this.category === '2D/3D Art' | this.category === '2D/3D 創作')
-            // {
-
-            // }else if (this.category === 'Media Design' | this.category === '多媒體設計')
-            // {
-
-            // }
+            else if (this.category === '2D/3D Art' | this.category === '2D/3D 創作')
+            {
+                this.data = skillArt
+            }
+            else if (this.category === 'Media Design' | this.category === '多媒體設計')
+            {
+                this.data = skillMedia
+            }
         }
 
     }

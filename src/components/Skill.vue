@@ -8,8 +8,8 @@
             
             <!-- Skill Category Name -->
             <div class="category" >
-                <p >
-                    + {{ skill.category }}
+                <p>
+                   <b>+ {{ skill.category }}</b>
                 </p>
             </div>
             
@@ -49,6 +49,7 @@
     height: 100%;
     display: flex;
     align-items: center;
+    color: rgb(117, 163, 177);
 }
 
 .skill{
