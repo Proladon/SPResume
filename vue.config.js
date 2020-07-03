@@ -1,4 +1,4 @@
 module.exports = {
   publicPath: '/SPResume/',
-  outputDir: 'docs'
+  outputDir: 'doc'
 }
