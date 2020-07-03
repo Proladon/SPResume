@@ -1,0 +1,23 @@
+{
+    "software":[
+            "Creo (Pro/E)",
+            "KeyShot",
+            "CURA",
+            "AutoCAD"
+    ],
+
+    "CH":{
+        "intro":[
+            "2018/7 - 9 : CoolerMaster 實習 (工業設計師)",
+            "擅長 模組化設計 與 機構設計",
+            "碩士論文 - 基於RFBSE模型與本體技術之產品設計知識提取方法以O-RFBSE為例"
+        ]
+    },
+    "EN":{
+        "intro":[
+            "Good at Modular & Mechanism Design",
+            "Master's Thesis - The Method of RFBSE Model and Ontology on Extract Product Design Knowledge - ORFBSE",
+            "2018/7 - 9 : CoolerMaster ID Intern ship"
+        ]
+    }
+}

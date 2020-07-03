@@ -3,7 +3,7 @@
         <div id="lang" @click="changeLang">EN / CH</div>
         <div class="page-wrapper">
 
-            <hooper id="main-hooper">
+            <hooper id="main-hooper" :wheelControl="false">
                 <slide>
                     <Header 
                         :slogan1="lang.slogan.slogan1" 
@@ -18,35 +18,56 @@
 
                     <Profession :profession="lang.profession" />
 
-                    <EduSkill :edu="lang.edu" @skillOverlay="overlaySkill" />
+                    <Edu :edu="lang.edu"  />
+                    <Skill :skills="lang.skills" @skillOverlay="overlaySkill" />
 
                     <Awards :awards="lang.awards" />
                 </slide>
 
                 <slide>
-                    <EduSkill :edu="lang.edu" />
+                    <img src="./assets/qr-code.svg" width="50%">
                 </slide>
             </hooper>
 
-            <div class="footer">
+            <div class="footer section">
                 <p><span>{{ page }}</span> / 2</p>
                 ← Slide →
             </div>
-            <!-- Overlay -->
 
-            <div class="overlay" >
-                <svg width="100%" height="100%">
-                    <circle class="overlay-bg" :class="{show:overlay}"/>
-                    Sorry, your browser does not support inline SVG.
-                    <circle class="overlay-btn" :class="{btn_show:overlay}" @click="overlay=false"/>
-                </svg>
-                
-            </div>
+            <!-- Overlay -->
+            <Overlay :overlay="overlay" @overlaySync="syncOverlayVal" />
+            
+            <!-- If Skill -->
+            <SkillOverlay 
+                v-if="skillShow == 'Industrial Design' | skillShow == '工業設計'" 
+                :lang="country" 
+                :category="skillShow" 
+            />
+
+            <SkillOverlay 
+                v-if="skillShow == 'Programming' | skillShow == '程式設計'" 
+                :lang="country" 
+                :category="skillShow" 
+            />
+
+            <SkillOverlay 
+                v-if="skillShow == '2D/3D Art' | skillShow == '2D/3D 創作'" 
+                :lang="country" 
+                :category="skillShow" 
+            />
+
+            <SkillOverlay 
+                v-if="skillShow == 'Media Design' | skillShow == '多媒體設計'" 
+                :lang="country" 
+                :category="skillShow" 
+            />
+
         </div>
 
-        <div id="lang">EN / CH</div>
+        <div id="lang">(。・ω・。)</div>
     </div>
 </template>
+
 
 <script>
     import {
@@ -59,8 +80,15 @@
     import Header from './components/Header.vue'
     import Profile from './components/Profile.vue'
     import Profession from './components/Profession.vue'
-    import EduSkill from './components/EduSkill.vue'
+    import Edu from './components/Edu.vue'
+    import Skill from './components/Skill.vue'
     import Awards from './components/Awards.vue'
+    import Overlay from './components/Overlay.vue'
+    
+    // import Design from './components/skill/Design.vue'
+    // import Programming from './components/skill/Programming.vue'
+    import SkillOverlay from './components/skill/SkillOverlay.vue'
+
     export default {
         name: 'App',
         components: {
@@ -69,8 +97,13 @@
             Header,
             Profile,
             Profession,
-            EduSkill,
+            Edu,
+            Skill,
             Awards,
+            Overlay,
+            // Design,
+            // Programming,
+            SkillOverlay,
         },
         data() {
             return {
@@ -78,8 +111,9 @@
                 page: 1,
                 CH: resumeCH,
                 EN: resumeEN,
-                country: 'CH',
+                country: 'EN',
                 lang: Object,
+                skillShow: String,
             }
         },
         methods: {
@@ -95,20 +129,26 @@
             overlaySkill(text) {
                 console.log(text)
                 this.overlay = true
+                this.skillShow = text
+            },
+            syncOverlayVal(val){
+                this.overlay = val
+                this.skillShow = ''
             }
         },
-        mounted() {
-            this.lang = this.CH
+        created() {
+            this.lang = this.EN
         }
     }
 </script>
 
 <style lang="scss">
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300&display=swap');
     * {
         margin: 0;
         padding: 0;
         font-size: 12px;
-        
+        font-family: 'Noto Sans TC', sans-serif;
     }
 
     body {
@@ -149,45 +189,6 @@
     #main-hooper {
         height: 100%;
         outline: none;
-    }
-
-    .overlay {
-        width: 100%;
-        height: 100%;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        position: absolute;
-        pointer-events: none;
-    }
-
-    .overlay-bg{
-        r: 0;
-        cx: 100%;
-        transition: ease-in-out 1s;
-        pointer-events: all;
-        fill: rgb(117, 163, 177);
-    }
-
-    .show {
-        r:1000;
-        fill: rgb(117, 163, 177);
-        border-radius: 0 30px 0 0;
-    }
-
-    .overlay-btn{
-        cx: 95%;
-        cy:3.5%;
-        r: 0;
-        fill: rgb(39, 55, 70);
-        cursor: pointer; 
-        pointer-events: all;
-        transition: ease-in-out 1s;
-    }
-
-    .btn_show{
-        r: 10;
     }
 
 </style>

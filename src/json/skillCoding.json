@@ -1,0 +1,34 @@
+{
+    "software":[
+            "Python",
+            "Javascript",
+            "C#",
+            "Vue.js",
+            "WPF",
+            "HTML",
+            "CSS"
+    ],
+
+    "CH":{
+        "intro":[
+            "3天使用 Vue.js 獨自搭建互動式個人履歷",
+            "5天使用 Vue.js 獨自搭建 Discord 伺服器 SHELTER ZONE 的形象官網",
+            "4天使用 WPF 自建 Picnel.io 圖片路徑操作分類軟體，並開源於Github上開放下載，頗為好評",
+            "主導規劃 Github 開源多人協作專案，使用 Vuepress 建置 技術交流指南 線上開源文檔，至今依然持續協作",
+            "主導規劃 Github 開源多人協作專案，Coder身分組認證題目，包含Python、Javascript、C#、C++、Kotlin，此為 Discord 伺服器 SHELTER ZONE 所用",
+            "一個下午使用 Vue.js 獨自為 Discord 伺服器 SHELTER ZONE 搭建簡易導讀規則頁面，最後會生成亂數驗證碼，使用者需使用驗證碼才能正式進入伺服器",
+            "使用Python幫研究室寫了一個，報帳程序自動化的小程式，有兩個版本，分別使用pyautogui與selenium"
+        ]
+    },
+   "EN":{
+       "intro":[
+           "Use Vue.js build reaction interactive personal resume in 3 days",
+           "Use Vue.js build offical website for discord server SHELTER ZONE in 5 days",
+           "Use WPF build Picnel.io image path operation classifier software in 4 days",
+           "Leading and planning Github collaboration opensoure project, Technological Exchange Guide Document",
+           "Leading and planning Github collaboration opensoure project, Coder Certification,for discord server SHELTER ZONE",
+           "Use Vue.js build Discord Server Entry Check website in an single afternoon, it will generate random token to access and entry discord server",
+           "Use Python build automation program for help laboratory to reimbursement, there are have two version, pyautogui and  selenium"
+       ]
+   }
+}

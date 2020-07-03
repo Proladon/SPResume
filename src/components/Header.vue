@@ -16,14 +16,15 @@
 </script>
 
 <style scoped lang="scss">
+    @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap');
     .header {
         width: 100%;
-        height: 15%;
+        height: 70px;
         box-sizing: border-box;
     }
 
     .deco-line {
-        height: 2em;
+        height: 100%;
         width: 2px;
         background-color: #B3C9CE;
         float: left;
@@ -38,5 +39,10 @@
 
         text-align: right;
         font-family: consolas;
+    }
+
+    .slogan{
+        font-size: 20px;
+        font-family: 'Raleway', sans-serif;
     }
 </style>

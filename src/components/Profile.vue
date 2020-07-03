@@ -7,10 +7,10 @@
             <div class="name">{{ name }}</div>
             <div class="nick">{{ nick }}</div>
         </div>
-        <div class="contact-wrapper">
+        <!-- <div class="contact-wrapper">
             <div class="website"> <a :href="website" target="_blank">Personal Website</a> </div>
             <div class="mail"><a :href="`mailto:${mail}`">{{ mail }}</a> </div>
-        </div>
+        </div> -->
     </div>
 </template>
 
